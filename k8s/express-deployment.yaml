@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: express
+  template:
+    metadata:
+      labels:
+        component: express
+    spec:
+      containers:
+        - name: express
+          image: anderson1218/ec-api-server
+          ports:
+            - containerPort: 8080
